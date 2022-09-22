@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  web:
+    image: php:7.4-apache
+    container_name: pontoeletronico
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /Users/henriqueschaffer/App/PHP/pontoeletronico/public:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql:latest
+    container_name: mysql-pontoeletronico
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
