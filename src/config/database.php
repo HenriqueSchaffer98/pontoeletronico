@@ -21,7 +21,7 @@ class Database {
         $conn->close();
 
         return $result;
-    }
+    } 
 
 
 }
