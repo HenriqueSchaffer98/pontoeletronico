@@ -3,15 +3,14 @@
 require_once(dirname(__FILE__, 2) . '/src/config/config.php');
 require_once(dirname(__FILE__, 2) . '/src/models/User.php');
 
-$user = new User(array(
-    'name' => 'Henrique',
-    'email' => 'teste@teste.com'
-));
+$user = new User(['name' => 'Henrique', 'email' => 'teste@teste.com']);
 
-print_r($user);
 echo '<br><br>';
-$user->email = 'hschaffer@wide.net';
-print_r($user->email);
+//echo $user->getSelect();
+
+echo User::getSelect(['id' => 1], 'name, email');
+echo '<br>';
+echo User::getSelect(['name' => 'Chaves']);
 
 //Database::getConnection();
 /* $sql = 'select * from users';
